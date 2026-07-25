@@ -1,22 +1,10 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        # O(n)
-        if len(s) != len(t):
+        letter_ct = {}
+
+        if len(t) != len(s):
             return False
 
-        count = defaultdict(int)
+        return sorted(s) == sorted(t)
 
-        for i in range(len(s)):
-            sl = s[i]
-            tl = t[i]
-
-            count[sl] += 1
-            count[tl] -= 1
-
-        return all(v == 0 for v in count.values())
-
-        # # O(nlogn)
-        # s = sorted(s)
-        # t = sorted(t)
-
-        # return s == t
+        

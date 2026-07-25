@@ -1,11 +1,10 @@
-from collections import defaultdict
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        numbers = defaultdict(int)
-
-        for n in nums: 
-            numbers[n] += 1
-            if numbers[n] > 1:
+        my_dict = {}
+        for num in nums:
+            if my_dict.get(num, 0) + 1 > 1:
                 return True
+            else:
+                my_dict[num] = 1
         return False
         
